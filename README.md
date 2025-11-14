@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📌 Pinterest Clone
 
-## Getting Started
+Clone của Pinterest được xây dựng với **Next.js 16**, **TypeScript**, **TailwindCSS** và **Lucide React**.
 
-First, run the development server:
+![Pinterest Clone](https://img.shields.io/badge/Next.js-16.0-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)
+
+## ✨ Features
+
+- 🎨 **Masonry Grid Layout** - Responsive waterfall layout như Pinterest
+- 🔍 **Search Bar** - Tìm kiếm với suggestions
+- 📱 **Responsive Design** - Hoạt động tốt trên mọi thiết bị
+- 🎯 **Hover Effects** - Interactive pin cards với overlay
+- 🧭 **Navigation** - Header và Sidebar navigation
+- 👤 **User Menu** - Dropdown menu cho user
+- 🏷️ **Tab Navigation** - Filter content với tabs
+- 🖼️ **Lazy Loading** - Tối ưu load images
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.18+ (khuyến nghị 20.9+)
+- npm hoặc yarn
+
+### Installation
 
 ```bash
+# Clone repository
+git clone <your-repo-url>
+cd pinterest-clone
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000) để xem kết quả.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+pinterest-clone/
+├── app/
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Home page
+│   └── globals.css         # Global styles
+├── components/
+│   ├── layout/             # Layout components
+│   │   ├── Header.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── TabNavigation.tsx
+│   ├── pin/                # Pin-related components
+│   │   ├── PinCard.tsx
+│   │   └── MasonryGrid.tsx
+│   └── ui/                 # UI components
+│       ├── SearchBar.tsx
+│       └── UserMenu.tsx
+├── lib/
+│   └── mockData.ts         # Mock data
+└── types/
+    └── index.ts            # TypeScript types
+```
 
-## Learn More
+## 🧩 Components
 
-To learn more about Next.js, take a look at the following resources:
+### Layout Components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Header** - Logo, navigation tabs, search bar, user menu
+- **Sidebar** - Fixed sidebar với navigation icons
+- **TabNavigation** - Tab switching ("Tất cả", "Vô trụ")
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Pin Components
 
-## Deploy on Vercel
+- **PinCard** - Card hiển thị từng pin với hover effects
+- **MasonryGrid** - Masonry layout responsive
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### UI Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **SearchBar** - Search với suggestions dropdown
+- **UserMenu** - User dropdown menu
+
+📖 Xem chi tiết tại [README_COMPONENTS.md](./README_COMPONENTS.md)
+
+## 🎨 Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** TailwindCSS
+- **Icons:** Lucide React
+- **Fonts:** Geist Sans, Geist Mono
+
+## 🔧 Available Scripts
+
+```bash
+# Development
+npm run dev
+
+# Build
+npm run build
+
+# Start production server
+npm start
+
+# Lint
+npm run lint
+```
+
+## 📝 Component Architecture
+
+Dự án được tổ chức theo component-based architecture:
+
+- ✅ **Separation of Concerns** - Mỗi component có trách nhiệm riêng
+- ✅ **Reusability** - Components có thể tái sử dụng
+- ✅ **Type Safety** - TypeScript cho type checking
+- ✅ **Maintainability** - Code dễ bảo trì và mở rộng
+
+## 🎯 Roadmap
+
+- [ ] Pin Modal (xem chi tiết pin)
+- [ ] Infinite Scroll
+- [ ] Real Search Functionality
+- [ ] User Authentication
+- [ ] Create Pin Feature
+- [ ] Save to Board
+- [ ] Comments System
+- [ ] Profile Page
+- [ ] Board Management
+
+## 📸 Screenshots
+
+*(Thêm screenshots của ứng dụng)*
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Author
+
+Built with ❤️ by [Your Name]
+
+---
+
+**Note:** Đây là project demo/học tập, không phải Pinterest chính thức.
