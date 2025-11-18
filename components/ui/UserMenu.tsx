@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { User, Settings, LogOut, HelpCircle } from 'lucide-react';
+import { UserIcon as User, Cog6ToothIcon as Settings, ArrowRightOnRectangleIcon as LogOut, QuestionMarkCircleIcon as HelpCircle } from '@heroicons/react/24/outline';
 
 export default function UserMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,8 +47,8 @@ export default function UserMenu() {
                 className="rounded-full"
               />
               <div>
-                <p className="font-semibold">Người dùng</p>
-                <p className="text-sm text-gray-500">@username</p>
+                <p className="font-bold text-black">Người dùng</p>
+                <p className="text-sm font-semibold text-black">@username</p>
               </div>
             </div>
           </div>
@@ -59,31 +59,31 @@ export default function UserMenu() {
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <User className="w-5 h-5" />
-              <span>Hồ sơ của bạn</span>
+              <User className="w-5 h-5 text-black" />
+              <span className="font-semibold text-black">Hồ sơ của bạn</span>
             </Link>
             <Link
               href="/settings"
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <Settings className="w-5 h-5" />
-              <span>Cài đặt</span>
+              <Settings className="w-5 h-5 text-black" />
+              <span className="font-semibold text-black">Cài đặt</span>
             </Link>
             <Link
               href="/help"
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <HelpCircle className="w-5 h-5" />
-              <span>Trợ giúp</span>
+              <HelpCircle className="w-5 h-5 text-black" />
+              <span className="font-semibold text-black">Trợ giúp</span>
             </Link>
           </div>
 
           <div className="border-t border-gray-200 py-2">
             <button className="flex items-center gap-3 px-4 py-3 w-full hover:bg-gray-100 transition-colors text-red-600">
               <LogOut className="w-5 h-5" />
-              <span>Đăng xuất</span>
+              <span className="font-semibold">Đăng xuất</span>
             </button>
           </div>
         </div>

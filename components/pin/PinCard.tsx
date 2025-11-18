@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { MoreHorizontal, Download, Link as LinkIcon, Share } from 'lucide-react';
+import { EllipsisHorizontalIcon as MoreHorizontal, ArrowDownTrayIcon as Download, LinkIcon, ShareIcon as Share } from '@heroicons/react/24/outline';
 import type { Pin } from '@/types';
 
 interface PinCardProps {
@@ -79,8 +79,8 @@ export default function PinCard({ pin, onClick }: PinCardProps) {
 
       {/* Title (optional, shown below image) */}
       {pin.title && (
-        <div className="mt-2 px-2">
-          <p className="text-sm font-medium text-gray-900 line-clamp-2">
+        <div className="mt-2">
+          <p className="text-sm font-semibold text-black line-clamp-2">
             {pin.title}
           </p>
         </div>
