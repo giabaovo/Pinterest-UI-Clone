@@ -26,47 +26,71 @@ import {
   ChatBubbleLeftIcon as ChatSolid
 } from '@heroicons/react/24/solid';
 
+const exploreCategories = [
+  'Nghệ thuật',
+  'Thú cưng',
+  'Làm đẹp',
+  'Thiết kế',
+  'Ẩm thực',
+  'Thời trang nữ',
+  'Thời trang nam',
+  'Trang trí nhà cửa',
+  'DIY',
+  'Lời hay ý đẹp',
+  'Du lịch',
+  'Tập luyện',
+  'Đám cưới'
+];
+
 const navItems = [
   { 
     icon: HomeOutline, 
     iconActive: HomeSolid,
     label: 'Trang chủ', 
-    href: '/' 
+    href: '/',
+    hasDropdown: false
   },
   { 
     icon: SearchOutline, 
     iconActive: SearchSolid,
     label: 'Khám phá', 
-    href: '/explore' 
+    href: '/explore',
+    hasDropdown: true,
+    isCustomIcon: false
   },
   { 
     icon: UserOutline, 
     iconActive: UserSolid,
     label: 'Hồ sơ', 
-    href: '/profile' 
+    href: '/profile',
+    hasDropdown: false
   },
   { 
     icon: PlusOutline, 
     iconActive: PlusSolid,
     label: 'Tạo', 
-    href: '/create' 
+    href: '/create',
+    hasDropdown: false
   },
   { 
     icon: BellOutline, 
     iconActive: BellSolid,
     label: 'Thông báo', 
-    href: '/notifications' 
+    href: '/notifications',
+    hasDropdown: false
   },
   { 
     icon: ChatOutline, 
     iconActive: ChatSolid,
     label: 'Tin nhắn', 
-    href: '/messages' 
+    href: '/messages',
+    hasDropdown: false
   },
 ];
 
 export default function Sidebar() {
   const [isMounted, setIsMounted] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -101,19 +125,41 @@ export default function Sidebar() {
       <nav className="flex-1 flex flex-col items-center gap-2 mt-2">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
-          const IconComponent = isActive ? item.iconActive : item.icon;
+          const showDropdown = hoveredItem === item.href && item.hasDropdown;
           
           return (
-            <Link
+            <div 
               key={item.href}
-              href={item.href}
-              className="p-3 rounded-full hover:bg-gray-200 transition-colors group relative"
-              title={item.label}
+              className="relative"
+              onMouseEnter={() => setHoveredItem(item.href)}
+              onMouseLeave={() => setHoveredItem(null)}
             >
-              <IconComponent 
-                className="w-6 h-6 text-black"
-              />
-            </Link>
+              <Link
+                href={item.href}
+                className="p-3 rounded-full hover:bg-gray-200 transition-colors group relative block"
+                title={item.label}
+              >
+                {(() => {
+                  const IconComponent = isActive ? item.iconActive : item.icon;
+                  return <IconComponent className="w-6 h-6 text-black" />;
+                })()}
+              </Link>
+
+              {/* Dropdown Menu for Explore */}
+              {showDropdown && (
+                <div className="absolute left-full ml-2 -top-35 w-56 bg-white rounded-2xl shadow-xl border border-gray-200 py-2 z-50">
+                  {exploreCategories.map((category, index) => (
+                    <Link
+                      key={index}
+                      href={`/explore/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="block px-4 py-2.5 hover:bg-gray-100 text-sm font-semibold text-black transition-colors"
+                    >
+                      {category}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           );
         })}
       </nav>
