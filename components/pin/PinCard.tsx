@@ -27,7 +27,18 @@ export default function PinCard({ pin, onClick }: PinCardProps) {
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
     >
-      <div className="relative rounded-2xl overflow-hidden bg-gray-100">
+      <div className="relative rounded-2xl overflow-hidden bg-gray-200">
+        {/* Skeleton loading animation */}
+        {!imageLoaded && (
+          <div 
+            className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%]"
+            style={{ 
+              aspectRatio: `${pin.width}/${pin.height}`,
+              animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+            }}
+          />
+        )}
+        
         <Image
           src={pin.imageUrl}
           alt={pin.title}
